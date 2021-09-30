@@ -38,13 +38,14 @@ def spherePend(t,y,Moment=0.0):
 rootdir = "../Spherical Pendulum/Data/"
 
 num_sample = 100
-create_data = False
+create_data = True
 training = True
 save = False
-noiselevel = 1e-2
+noiselevel = 2e-2
 
 
 if(create_data):
+    print("Creating data . . .")
     X, Xdot = [], []
     for i in range(num_sample):
         t = np.arange(0,5,0.01)
@@ -301,7 +302,7 @@ for stage in range(5):
     if(stage==4):
         lam = 0
     else:
-        lam = 0.1
+        lam = 0.5
     temp = 1000
     RHS = [Zeta, Eta, Delta]
     LHS = [Zeta_, Eta_, Delta_]

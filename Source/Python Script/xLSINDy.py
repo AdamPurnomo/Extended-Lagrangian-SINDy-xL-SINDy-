@@ -145,7 +145,7 @@ def ELforward(coef, Zeta, Eta, Delta, xdot, device):
 
 def tauforward(coef, mask, Zeta, Eta, Delta, xdot):
     '''
-    Computing time series of q_tt (q double dot) prediction
+    Computing time series of tau (external input) prediction
     #Params:
     coef        : Coefficient corresponding to each basis function
     mask        : filter for coefficient below a certain threshold

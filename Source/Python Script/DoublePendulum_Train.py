@@ -40,7 +40,7 @@ def doublePendulum(t,y,M=0.0):
 rootdir = "../Double Pendulum/Data/"
 
 num_sample = 100
-create_data = True
+create_data = False
 training = True
 save = False
 noiselevel = 2e-2

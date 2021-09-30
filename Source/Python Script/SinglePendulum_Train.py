@@ -52,6 +52,8 @@ if(create_data):
         x,xdot = generate_data(pendulum, t, y_0)
         X.append(x)
         Xdot.append(xdot)
+    X = np.vstack(X)
+    Xdot = np.vstack(Xdot)
     if(save==True):
         np.save(rootdir + "X.npy", X)
         np.save(rootdir + "Xdot.npy",Xdot)
@@ -134,8 +136,6 @@ def training_loop(coef, prevcoef, Zeta, Eta, Delta,xdot, bs, lr, lam):
     
     for i in range(tl//bs):
         
-        #v = coef.clone().detach().requires_grad_(True)
-        
         #computing acceleration with momentum
         v = (coef + ((i-1)/(i+2))*(coef - prevcoef)).clone().detach().requires_grad_(True)
         
@@ -153,9 +153,6 @@ def training_loop(coef, prevcoef, Zeta, Eta, Delta,xdot, bs, lr, lam):
         q_tt_true = xdot[i*bs:(i+1)*bs,n//2:].T
         
 
-        #tau_pred = tauforward(coef,mask,zeta,eta,delta,x_t)
-        #tau_true = torch.zeros(tau_pred.shape,device=device)
-        #tau_true[0,:] = 1
         
         lossval = loss(q_tt_pred, q_tt_true, coef)
         
@@ -225,7 +222,7 @@ for stage in range(2):
     if(stage==1):
         lam = 0
     else:
-        lam = 0.01
+        lam = 0.1
     temp = 1000
     while(i<=Epoch):
         print("\n")

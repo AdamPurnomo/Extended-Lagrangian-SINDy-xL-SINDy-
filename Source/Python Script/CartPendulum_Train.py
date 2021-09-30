@@ -40,14 +40,14 @@ def cartpole(t,y,f=0.0):
 rootdir = "../Cart Pendulum/Data/"
 
 num_sample = 100
-create_data = True
+create_data = False
 training = True
 save = False
 noiselevel = 2e-2
 
 
 if(create_data):
-    print("Creatin data ...")
+    print("Creating data ...")
     X, Xdot = [], []
     for i in range(num_sample):
         t = np.arange(0,5,0.01)
@@ -345,7 +345,7 @@ for stage in range(3):
 
 ## Adding known terms
 L = str(simplify(L)) + " + " + known_expr[0]
-print("Obtained Lagrangain:" ,L)
+print("Obtained Lagrangian:" ,L)
 
 expr = expr + known_expr
 xi_L = torch.cat((xi_L, c))
