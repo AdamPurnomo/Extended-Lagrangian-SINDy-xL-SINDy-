@@ -24,3 +24,14 @@ The effectiveness of xL-SINDy  is demonstrated against different noise levels in
 * Install the environment and dependencies `conda env create -f environment.yml`
 
 ## How to Use
+
+### Existing examples
+Please take a look at `Source/Notebook/[System Name] - Train.ipynb` or `Source/Python Script/[System Name]_Train.py` and run the code.
+
+### Build new dynamical systems
+
+## Dependencies
+* numpy 1.19.2
+* scipy 1.6.1
+* pytorch 1.9.0
+* sympy 1.7.1
