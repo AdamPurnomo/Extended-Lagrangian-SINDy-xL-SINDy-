@@ -18,6 +18,7 @@ The effectiveness of xL-SINDy  is demonstrated against different noise levels in
 <p align="center">
   <img width=75% height=75% src="https://raw.githubusercontent.com/AdamPurnomo/Extended-Lagrangian-SINDy-xL-SINDy-/main/images/resfull.png">
 </p>
+
 ## Installation
 * Clone this repository `git clone https://github.com/AdamPurnomo/Extended-Lagrangian-SINDy-xL-SINDy-.git`
 * Install the environment and dependencies `conda env create -f environment.yml`
