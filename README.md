@@ -14,7 +14,7 @@ For more detail about the derivation and the problem formulation, please take a 
 The effectiveness of xL-SINDy  is demonstrated against different noise levels in physical simulation with four dynamical systems: A single pendulum, a cart-pendulum, a double pendulum, and a spherical pendulum.
 
 <p align="center">
-  <img width=50% height=50% src="https://github.com/AdamPurnomo/Extended-Lagrangian-SINDy-xL-SINDy-/blob/main/images/systems.png?raw=true">
+  <img width=10% height=10% src="https://github.com/AdamPurnomo/Extended-Lagrangian-SINDy-xL-SINDy-/blob/main/images/systems.png?raw=true">
 </p>
 
 ## Installation
