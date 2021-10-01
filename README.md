@@ -15,6 +15,10 @@ The effectiveness of xL-SINDy  is demonstrated against different noise levels in
 
 ![systems](/images/systems.png)
 
+<p align="center">
+<img align="left" width="100" height="100" src="http://www.fillmurray.com/100/100">
+https://github.com/AdamPurnomo/Extended-Lagrangian-SINDy-xL-SINDy-/blob/main/images/noise_comparison.png?raw=true
+</p>
 
 ## Installation
 * Clone this repository `git clone https://github.com/AdamPurnomo/Extended-Lagrangian-SINDy-xL-SINDy-.git`
