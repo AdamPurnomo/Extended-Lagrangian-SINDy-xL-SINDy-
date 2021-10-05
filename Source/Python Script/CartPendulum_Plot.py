@@ -35,7 +35,6 @@ def cartpole(t,y,f=0.0):
     return thetadot,xdot,thetadotdot,xdotdot
 
 
-# %%
 #Saving Directory
 rootdir = "../Cart Pendulum/"
 
