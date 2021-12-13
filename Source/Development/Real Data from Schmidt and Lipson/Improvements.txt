@@ -1,0 +1,56 @@
+Points for Improvement on the paper:
+
+Manageable
+
+1. The authors seem to confuse the action function(al) with the
+Lagrangian in the introduction. These are very distinct concepts.
+
+2. The authors describe a very nice cost function (9) when external
+forces are known, however they inexplicably switch to a different
+function (11) when the system is conservative and external forces are
+zero. They then complain that (11) is highly non-convex and hard to
+optimize. Why not simply stick with (9) in all cases? Nothing prevents
+you from setting \tau_{ext} = 0 in (9) and simply minimizing the
+residual (8). 
+
+is there a numerical benefit for using one or the other? A table illustrating the accuracy of the resulting
+Lagrangian using these approaches would be interested to see if one is preferred over the other. 
+
+to add which method was used to extract the Lagrangian in Table 1. Highlighting one of the dynamical systems and comparing each of the resulting Lagrangians (and the
+derived dynamical system is within reasonable accuracy) would significantly strengthen and make clear the contribution of the work. 
+
+3. Since the authors make direct comparisons to SINDy-PI, it would be
+good to have at least a brief technical description of this algorithm
+as background for the reader. (Add SINDy as well in the comparison method)
+
+
+Challenging
+
+1. Add results from data obtained by Schimdt and Lipson
+
+
+
+Long strecth
+
+1. Experiments were only performed with white noise. It would be better
+to include some experiments where the true model is not in the same
+model class as the basis used in the fitting to model more realistic
+scenarios with unknown dynamics.
+
+2. In other words, I would suggest implementing the
+algorithm on sophisticated robotic systems with high DOFs. 
+
+3. there is no guarantee that the optimal solutions of the
+nonconvex NLPs converge to the actual optimal values. The algorithm may
+converge to a local solution, and I am not sure how much that optimal
+solution can be helpful for modeling and control. 
+
+4. The authors choose a parameterization of the Lagrangian function
+that does not necessarily result in a valid Lagrangian. For example, a
+valid Lagrangian must have a positive definite Hessian w.r.t. q\dot.
+These structural requirements on the Lagrangian can easily be
+guaranteed by construction by appropriate choice of basis functions.
+This issues is clearly apparent in the authors' discussion about having
+to use a pseudo-inverse when computing the dynamics because the mass
+matrix they compute is not always positive definite. This un-physical
+behavior should be avoided.

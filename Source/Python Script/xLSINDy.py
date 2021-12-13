@@ -88,7 +88,7 @@ def LagrangianLibraryTensor(x,xdot,expr,states,states_dot, scaling=False, scales
                     Eta[m,n,o,:] = eta 
     return Zeta, Eta, Delta 
 
-def lagrangianforward(coef, mask, Zeta, Eta, Delta, xdot, device):
+def lagrangianforward(coef, Zeta, Eta, Delta, xdot, device):
     """
     Computing time series of q_tt (q double dot) prediction
     #Params:
@@ -99,7 +99,7 @@ def lagrangianforward(coef, mask, Zeta, Eta, Delta, xdot, device):
     Delta       : time-series of derivative of basis functions w.r.t q 
     xdot        : Time-series of states_dot data  
     """
-    weight = coef*mask
+    weight = coef
     DL_q = torch.einsum('jkl,k->jl',Delta,weight)
     DL_qdot2 = torch.einsum('ijkl,k->ijl',Zeta,weight)
     DL_qdotq = torch.einsum('ijkl,k->ijl',Eta,weight)
@@ -125,6 +125,9 @@ def ELforward(coef, Zeta, Eta, Delta, xdot, device):
     Eta         : time-series of double derivative of basis functions w.r.t qdot and q 
     Delta       : time-series of derivative of basis functions w.r.t q 
     xdot        : Time-series of states_dot data  
+
+    #Returns:
+    El          : Time series of the left hand side of Euler's Lagranges equation (n, time-series)
     """
     weight = coef
     DL_q = torch.einsum('jkl,k->jl',Delta,weight)
