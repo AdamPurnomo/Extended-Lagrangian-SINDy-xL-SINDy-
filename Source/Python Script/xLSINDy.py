@@ -178,7 +178,7 @@ def Upsilonforward(Zeta, Eta, Delta, xdot, device):
     return Upsilon
 
 
-def tauforward(coef, mask, Zeta, Eta, Delta, xdot):
+def tauforward(coef, Zeta, Eta, Delta, xdot, device):
     '''
     Computing time series of tau (external input) prediction
     #Params:
@@ -189,7 +189,7 @@ def tauforward(coef, mask, Zeta, Eta, Delta, xdot):
     Delta       : time-series of derivative of basis functions w.r.t q 
     xdot        : Time-series of states_dot data  
     '''
-    weight = coef*mask
+    weight = coef
     DL_q = torch.einsum('jkl,k->jl', Delta, weight)
     DL_qdot2 = torch.einsum('ijkl,k->ijl', Zeta, weight)
     DL_qdotq = torch.einsum('ijkl,k->ijl', Eta, weight)
